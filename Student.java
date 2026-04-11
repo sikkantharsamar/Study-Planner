@@ -17,7 +17,7 @@ public class Student extends Person {
 
     @Override
     public void displayDetails() {
-        System.out.println("\n=== Student Details ===");
+        System.out.println("\n== Student Details ==");
         System.out.println("Student ID: " + studentId);
         displayContactInfo(); // Call inherited method from Person
         System.out.println("======================");
