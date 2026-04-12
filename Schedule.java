@@ -59,6 +59,6 @@ public class Schedule {
                 System.out.println("  Status: " + (task.isCompleted() ? "COMPLETED" : "PENDING"));
             }
         }
-        System.out.println("========================================");
+        System.out.println("====================================");
     }
 }
