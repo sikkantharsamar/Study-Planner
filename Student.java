@@ -5,7 +5,7 @@ public class Student extends Person {
 
 
     public Student(String studentId, String name, String email) {
-        super(name, email); // Call parent constructor
+        super(name, email); 
         this.studentId = studentId;
     }
 
@@ -17,10 +17,10 @@ public class Student extends Person {
 
     @Override
     public void displayDetails() {
-        System.out.println("\n== Student Details ==");
+        System.out.println("\n=== Student's Details ===");
         System.out.println("Student ID: " + studentId);
-        displayContactInfo(); // Call inherited method from Person
-        System.out.println("======================");
+        displayContactInfo(); 
+        System.out.println("=================");
     }
 
 
