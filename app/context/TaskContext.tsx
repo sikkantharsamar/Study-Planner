@@ -1,6 +1,6 @@
 'use client'
 
-import React, { createContext, useContext, useState, ReactNode } from 'react'
+import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react'
 import { useAuth } from './AuthContext'
 
 export type TaskPriority = 'HIGH' | 'MEDIUM' | 'LOW'
@@ -22,6 +22,7 @@ interface TaskContextType {
 }
 
 const TaskContext = createContext<TaskContextType | undefined>(undefined)
+const STORAGE_KEY = 'study-planner-tasks'
 
 export const useTasks = () => {
   const context = useContext(TaskContext)
@@ -34,6 +35,25 @@ export const useTasks = () => {
 export const TaskProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const { user } = useAuth()
   const [tasksByUser, setTasksByUser] = useState<Record<string, Task[]>>({})
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const storedTasks = window.localStorage.getItem(STORAGE_KEY)
+    if (storedTasks) {
+      try {
+        setTasksByUser(JSON.parse(storedTasks) as Record<string, Task[]>)
+      } catch {
+        window.localStorage.removeItem(STORAGE_KEY)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(tasksByUser))
+  }, [tasksByUser])
 
   const userId = user?.id
   const tasks = userId ? tasksByUser[userId] ?? [] : []

@@ -13,9 +13,10 @@ export default function Register() {
   const { register } = useAuth()
   const router = useRouter()
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (register(studentId, name, password)) {
+    const success = await register(studentId, name, password)
+    if (success) {
       setSuccess('Registration successful! You can now log in.')
       setError('')
       setTimeout(() => router.push('/login'), 2000)

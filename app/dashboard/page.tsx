@@ -97,9 +97,9 @@ export default function Dashboard() {
                   </div>
                 </div>
                 <div className="mt-5">
-                  <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+                  <Link href="/subjects" className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">
                     Go to Subjects
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
