@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Planner Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body class="dashboard-page">
+<header class="topbar">
+    <h1>Study Planner</h1>
+    <form method="post" th:action="@{/logout}">
+        <button type="submit" class="secondary">Logout</button>
+    </form>
+</header>
+
+<main class="layout">
+    <section class="panel">
+        <h2>Add Task</h2>
+        <form method="post" th:action="@{/tasks}" th:object="${taskForm}" class="task-form">
+            <label for="title">Title</label>
+            <input id="title" type="text" th:field="*{title}" placeholder="Chapter review" required>
+            <small class="error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></small>
+
+            <label for="subject">Subject</label>
+            <input id="subject" type="text" th:field="*{subject}" placeholder="Physics" required>
+            <small class="error" th:if="${#fields.hasErrors('subject')}" th:errors="*{subject}"></small>
+
+            <label for="dueDate">Due Date</label>
+            <input id="dueDate" type="date" th:field="*{dueDate}">
+
+            <button type="submit">Add Task</button>
+        </form>
+    </section>
+
+    <section class="panel">
+        <h2>Prioritized Tasks</h2>
+        <div class="empty" th:if="${#lists.isEmpty(tasks)}">
+            No tasks yet. Add one to get started.
+        </div>
+        <ul class="task-list" th:if="${!#lists.isEmpty(tasks)}">
+            <li th:each="task : ${tasks}">
+                <div>
+                    <strong th:text="${task.title}">Task Title</strong>
+                    <p th:text="${task.subject}">Subject</p>
+                </div>
+                <span th:text="${task.dueDate != null ? task.dueDate : 'No due date'}">2026-04-13</span>
+            </li>
+        </ul>
+    </section>
+</main>
+</body>
+</html>

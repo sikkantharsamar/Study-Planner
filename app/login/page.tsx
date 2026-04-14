@@ -11,9 +11,10 @@ export default function Login() {
   const { login } = useAuth()
   const router = useRouter()
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (login(studentId, password)) {
+    const success = await login(studentId, password)
+    if (success) {
       router.push('/dashboard')
     } else {
       setError('Invalid credentials')
