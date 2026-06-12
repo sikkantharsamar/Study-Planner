@@ -35,13 +35,13 @@ public class Subject {
         this.creditHours = creditHours;
     }
 
-
+Logger logger = Logger.getLogger(getClass().getName());
 
     public void displaySubject() {
-        System.out.println("\n--- Subject Info ---");
-        System.out.println("Code: " + subjectCode);
-        System.out.println("Name: " + subjectName);
-        System.out.println("Credit Hours: " + creditHours);
-        System.out.println("-------------------");
+        logger.info("\n--- Subject Info ---");
+        logger.info("Code: " + subjectCode);
+        logger.info("Name: " + subjectName);
+        logger.info("Credit Hours: " + creditHours);
+        logger.info("-------------------");
     }
 }
