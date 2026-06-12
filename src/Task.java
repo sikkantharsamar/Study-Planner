@@ -65,17 +65,16 @@ public class Task {
 
     public void markCompleted() {
         this.isCompleted = true;
-        System.out.println("Task '" + taskName + "' marked as completed!");
+        logger.info("Task '" + taskName + "' marked as completed!");
     }
 
 
     public void displayTask() {
-        System.out.println("\n--- Task Details ---");
-        System.out.println("Task ID: " + taskId);
-        System.out.println("Name: " + taskName);
-        System.out.println("Deadline: " + deadline);
-        System.out.println("Priority: " + priority);
-        System.out.println("Status: " + (isCompleted ? "COMPLETED" : "PENDING"));
-        System.out.println("-------------------");
+        logger.info("\n--- Task Details ---");
+        logger.info("Task ID: " + taskId + " | Name: " + taskName);
+        logger.info("Category: " + category + " | Est. Time: " + estimatedHours + " hours");
+        logger.info("Deadline: " + deadline + " | Priority: " + priority);
+        logger.info("Status: " + (isCompleted ? "COMPLETED" : "PENDING"));
+        logger.info("-------------------");
     }
 }
