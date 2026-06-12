@@ -1,9 +1,10 @@
-
+import java.util.logging.Logger;
 public class Subject {
 
     private String subjectCode;
     private String subjectName;
     private int creditHours;
+
 
 
     public Subject(String subjectCode, String subjectName, int creditHours) {
@@ -33,6 +34,7 @@ public class Subject {
     public void setCreditHours(int creditHours) {
         this.creditHours = creditHours;
     }
+
 
 
     public void displaySubject() {
