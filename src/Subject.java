@@ -15,6 +15,8 @@ public class Subject {
         this.subjectCode = subjectCode;
         this.subjectName = subjectName;
         this.creditHours = creditHours;
+        this.difficultyRating = difficultyRating;
+        this.targetGrade = targetGrade;
     }
 
 
@@ -30,6 +32,12 @@ public class Subject {
         return creditHours;
     }
 
+    public int getDifficultyRating() {
+        return difficultyRating;
+    }
+    public String getTargetGrade() {
+        return targetGrade;
+    }
 
     public void setSubjectName(String subjectName) {
         this.subjectName = subjectName;
