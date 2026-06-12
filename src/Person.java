@@ -34,6 +34,6 @@ public abstract class Person {
 
     public void displayContactInfo() {
         System.out.println("Name: " + name);
-        System.out.println("Email: " + email);
+        System.out.println("Email ID: " + email);
     }
 }
