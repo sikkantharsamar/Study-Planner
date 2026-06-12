@@ -52,7 +52,8 @@ public class Subject {
         logger.info("\n--- Subject Info ---");
         logger.info("Code: " + subjectCode);
         logger.info("Name: " + subjectName);
-        logger.info("Credit Hours: " + creditHours);
+        logger.info("Credits: " + creditHours + " | Target Grade: " + targetGrade);
+        logger.info("Difficulty Level (1-5): " + difficultyRating);
         logger.info("-------------------");
     }
 }
