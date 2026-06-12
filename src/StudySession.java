@@ -1,4 +1,4 @@
-
+import java.util.logging.Logger;
 public class StudySession {
 
     private String sessionId;
