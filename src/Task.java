@@ -14,11 +14,13 @@ public class Task {
     private boolean isCompleted;
 
 
-    public Task(String taskId, String taskName, String deadline, String priority) {
+    public Task(String taskId, String taskName, String deadline, String priority, String category, double estimatedHours) {
         this.taskId = taskId;
         this.taskName = taskName;
         this.deadline = deadline;
         this.priority = priority;
+        this.category = category;
+        this.estimatedHours = estimatedHours;
         this.isCompleted = false; 
     }
 
