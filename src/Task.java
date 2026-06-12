@@ -1,19 +1,27 @@
+import java.util.logging.Logger;
+
 
 public class Task {
+
+    private static final Logger logger = Logger.getLogger(Task.class.getName());
 
     private String taskId;
     private String taskName;
     private String deadline;
-    private String priority; // HIGH, MEDIUM, LOW
+    private String priority; 
+     private String category;
+    private double estimatedHours;
     private boolean isCompleted;
 
 
-    public Task(String taskId, String taskName, String deadline, String priority) {
+    public Task(String taskId, String taskName, String deadline, String priority, String category, double estimatedHours) {
         this.taskId = taskId;
         this.taskName = taskName;
         this.deadline = deadline;
         this.priority = priority;
-        this.isCompleted = false; // Initially not completed
+        this.category = category;
+        this.estimatedHours = estimatedHours;
+        this.isCompleted = false; 
     }
 
 
@@ -32,6 +40,14 @@ public class Task {
     public String getPriority() {
         return priority;
     }
+    public String getCategory() {
+        return category;
+    }
+    public double getEstimatedHours() {
+        return estimatedHours;
+    }
+
+
 
     public boolean isCompleted() {
         return isCompleted;
@@ -49,17 +65,16 @@ public class Task {
 
     public void markCompleted() {
         this.isCompleted = true;
-        System.out.println("Task '" + taskName + "' marked as completed!");
+        logger.info("Task '" + taskName + "' marked as completed!");
     }
 
 
     public void displayTask() {
-        System.out.println("\n--- Task Details ---");
-        System.out.println("Task ID: " + taskId);
-        System.out.println("Name: " + taskName);
-        System.out.println("Deadline: " + deadline);
-        System.out.println("Priority: " + priority);
-        System.out.println("Status: " + (isCompleted ? "COMPLETED" : "PENDING"));
-        System.out.println("-------------------");
+        logger.info("\n--- Task Details ---");
+        logger.info("Task ID: " + taskId + " | Name: " + taskName);
+        logger.info("Category: " + category + " | Est. Time: " + estimatedHours + " hours");
+        logger.info("Deadline: " + deadline + " | Priority: " + priority);
+        logger.info("Status: " + (isCompleted ? "COMPLETED" : "PENDING"));
+        logger.info("-------------------");
     }
 }
