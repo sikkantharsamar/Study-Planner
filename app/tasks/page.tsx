@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '../context/AuthContext'
 import { useTasks, TaskPriority } from '../context/TaskContext'
@@ -18,9 +18,14 @@ export default function TasksPage() {
   const [priority, setPriority] = useState<TaskPriority>('MEDIUM')
   const [error, setError] = useState('')
 
+  useEffect(() => {
+    if (!user) {
+      router.push('/login')
+    }
+  }, [user, router])
+
   if (!user) {
-    router.push('/login')
-    return null
+    return <div>Loading...</div>
   }
 
   const handleSubmit = (e: React.FormEvent) => {

@@ -2,11 +2,26 @@
     --bg-start: #f6efe8;
     --bg-end: #d4e2d4;
     --card: #fff8f1;
+    --surface: #fffdfb;
     --ink: #2b2b2b;
+    --ink-soft: #5e5e5e;
     --accent: #c75c2a;
     --accent-dark: #91421e;
     --line: #e8d7c9;
     --danger: #9e2a2b;
+}
+
+html.dark {
+    --bg-start: #12161d;
+    --bg-end: #0b0f14;
+    --card: #1a212b;
+    --surface: #141b24;
+    --ink: #e8edf3;
+    --ink-soft: #b4c0cd;
+    --accent: #f08c57;
+    --accent-dark: #d1713f;
+    --line: #2a3543;
+    --danger: #f07272;
 }
 
 * {
@@ -85,7 +100,8 @@ input {
     border: 1px solid var(--line);
     border-radius: 0.65rem;
     padding: 0.7rem 0.8rem;
-    background: #fff;
+    background: var(--surface);
+    color: var(--ink);
 }
 
 button {
@@ -105,9 +121,40 @@ button:hover {
 }
 
 button.secondary {
-    background: transparent;
+    background: var(--surface);
     border: 1px solid var(--accent);
     color: var(--accent);
+}
+
+select {
+    font: inherit;
+    border: 1px solid var(--line);
+    border-radius: 0.6rem;
+    padding: 0.38rem 0.55rem;
+    background: var(--surface);
+    color: var(--ink);
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.theme-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.9rem;
+}
+
+.theme-controls.compact {
+    margin-bottom: 0;
+}
+
+.theme-controls label {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
 }
 
 .dashboard-page {
@@ -153,12 +200,12 @@ button.secondary {
     padding: 0.75rem;
     border: 1px dashed var(--line);
     border-radius: 0.75rem;
-    background: #fffdfb;
+    background: var(--surface);
 }
 
 .task-list p {
     margin: 0.25rem 0 0;
-    color: #5e5e5e;
+    color: var(--ink-soft);
 }
 
 .error {
@@ -168,7 +215,15 @@ button.secondary {
 .hint,
 .status,
 .empty {
-    color: #4d4d4d;
+    color: var(--ink-soft);
+}
+
+@media (max-width: 640px) {
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
 }
 
 @keyframes rise {

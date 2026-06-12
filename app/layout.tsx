@@ -2,7 +2,9 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { AuthProvider } from './context/AuthContext'
+import { ScheduleProvider } from './context/ScheduleContext'
 import { SubjectProvider } from './context/SubjectContext'
+import { StudySessionProvider } from './context/StudySessionContext'
 import { TaskProvider } from './context/TaskContext'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -22,9 +24,13 @@ export default function RootLayout({
       <body className={inter.className}>
         <AuthProvider>
           <SubjectProvider>
-            <TaskProvider>
-              {children}
-            </TaskProvider>
+            <ScheduleProvider>
+              <StudySessionProvider>
+                <TaskProvider>
+                  {children}
+                </TaskProvider>
+              </StudySessionProvider>
+            </ScheduleProvider>
           </SubjectProvider>
         </AuthProvider>
       </body>

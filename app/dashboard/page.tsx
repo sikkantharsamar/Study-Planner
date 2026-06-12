@@ -124,9 +124,9 @@ export default function Dashboard() {
                   </div>
                 </div>
                 <div className="mt-5">
-                  <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+                  <Link href="/sessions" className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">
                     Go to Sessions
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -151,9 +151,9 @@ export default function Dashboard() {
                   </div>
                 </div>
                 <div className="mt-5">
-                  <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+                  <Link href="/schedules" className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">
                     Go to Schedules
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
