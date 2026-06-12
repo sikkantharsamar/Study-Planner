@@ -1,9 +1,13 @@
 import java.util.logging.Logger;
 public class Subject {
+        private static final Logger logger = Logger.getLogger(Subject.class.getName());
+
 
     private String subjectCode;
     private String subjectName;
     private int creditHours;
+    private int difficultyRating;
+    private String targetGrade;
 
 
 
@@ -11,6 +15,8 @@ public class Subject {
         this.subjectCode = subjectCode;
         this.subjectName = subjectName;
         this.creditHours = creditHours;
+        this.difficultyRating = difficultyRating;
+        this.targetGrade = targetGrade;
     }
 
 
@@ -26,6 +32,12 @@ public class Subject {
         return creditHours;
     }
 
+    public int getDifficultyRating() {
+        return difficultyRating;
+    }
+    public String getTargetGrade() {
+        return targetGrade;
+    }
 
     public void setSubjectName(String subjectName) {
         this.subjectName = subjectName;
@@ -35,13 +47,13 @@ public class Subject {
         this.creditHours = creditHours;
     }
 
-Logger logger = Logger.getLogger(getClass().getName());
 
     public void displaySubject() {
         logger.info("\n--- Subject Info ---");
         logger.info("Code: " + subjectCode);
         logger.info("Name: " + subjectName);
-        logger.info("Credit Hours: " + creditHours);
+        logger.info("Credits: " + creditHours + " | Target Grade: " + targetGrade);
+        logger.info("Difficulty Level (1-5): " + difficultyRating);
         logger.info("-------------------");
     }
 }

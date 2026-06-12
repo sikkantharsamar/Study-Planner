@@ -1,16 +1,20 @@
 import java.util.logging.Logger;
 public class StudySession {
-    Logger logger = Logger.getLogger(getClass().getName());
+    private static final Logger logger = Logger.getLogger(StudySession.class.getName());
 
     private String sessionId;
     private Subject subject;
     private double durationInHours;
+     private String sessionNotes;
+    private int productivityRating;
 
 
-    public StudySession(String sessionId, Subject subject, double durationInHours) {
+   public StudySession(String sessionId, Subject subject, double durationInHours, String sessionNotes, int productivityRating) {
         this.sessionId = sessionId;
         this.subject = subject;
         this.durationInHours = durationInHours;
+        this.sessionNotes = sessionNotes;
+        this.productivityRating = productivityRating;
     }
 
 
@@ -26,6 +30,14 @@ public class StudySession {
         return durationInHours;
     }
 
+    public String getSessionNotes() {
+        return sessionNotes;
+    }
+
+    public int getProductivityRating() {
+        return productivityRating;
+    }
+
 
     public void setDurationInHours(double durationInHours) {
         this.durationInHours = durationInHours;
@@ -36,7 +48,8 @@ public class StudySession {
         logger.info("\n--- Study Session ---");
         logger.info("Session ID: " + sessionId);
         logger.info("Subject: " + subject.getSubjectName() + " (" + subject.getSubjectCode() + ")");
-        logger.info("Duration: " + durationInHours + " hours");
+        logger.info("Duration: " + durationInHours + " hours | Productivity Rating: " + productivityRating + "/5");
+        logger.info("Notes: " + sessionNotes);
         logger.info("--------------------");
     }
 }
