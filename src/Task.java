@@ -40,6 +40,14 @@ public class Task {
     public String getPriority() {
         return priority;
     }
+    public String getCategory() {
+        return category;
+    }
+    public double getEstimatedHours() {
+        return estimatedHours;
+    }
+
+
 
     public boolean isCompleted() {
         return isCompleted;
