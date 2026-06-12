@@ -1,5 +1,6 @@
 import java.util.logging.Logger;
 public class StudySession {
+    Logger logger = Logger.getLogger(getClass().getName());
 
     private String sessionId;
     private Subject subject;
@@ -32,10 +33,10 @@ public class StudySession {
 
 
     public void displaySession() {
-        System.out.println("\n--- Study Session ---");
-        System.out.println("Session ID: " + sessionId);
-        System.out.println("Subject: " + subject.getSubjectName() + " (" + subject.getSubjectCode() + ")");
-        System.out.println("Duration: " + durationInHours + " hours");
-        System.out.println("--------------------");
+        logger.info("\n--- Study Session ---");
+        logger.info("Session ID: " + sessionId);
+        logger.info("Subject: " + subject.getSubjectName() + " (" + subject.getSubjectCode() + ")");
+        logger.info("Duration: " + durationInHours + " hours");
+        logger.info("--------------------");
     }
 }
