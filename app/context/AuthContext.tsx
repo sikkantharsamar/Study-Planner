@@ -47,6 +47,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     return Array.from(mergedUsers.values())
   }
 
+  // Load from localStorage on mount
   useEffect(() => {
     if (typeof window === 'undefined') return
 
@@ -70,12 +71,14 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     }
   }, [])
 
+  // Persist users to localStorage whenever they change
   useEffect(() => {
     if (typeof window === 'undefined') return
 
     window.localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(users))
   }, [users])
 
+  // Persist current user to localStorage whenever they change
   useEffect(() => {
     if (typeof window === 'undefined') return
 
@@ -96,20 +99,14 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     return data.users
   }
 
-  const ensureUsersLoaded = async (): Promise<User[]> => {
-    const serverUsers = await loadUsersFromServer()
-    const mergedUsers = mergeUsers(users, serverUsers)
-    setUsers(mergedUsers)
-    setUsersLoaded(true)
-    return mergedUsers
-  }
-
+  // Load users from server on mount
   useEffect(() => {
     const loadUsers = async () => {
       try {
         const serverUsers = await loadUsersFromServer()
         setUsers(previousUsers => mergeUsers(previousUsers, serverUsers))
-      } catch {
+      } catch (err) {
+        console.error('Failed to load users from server:', err)
         // Keep any locally stored users if the server file is unavailable.
       } finally {
         setUsersLoaded(true)
@@ -124,11 +121,16 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       return users
     }
 
-    const serverUsers = await loadUsersFromServer()
-    const mergedUsers = mergeUsers(users, serverUsers)
-    setUsers(mergedUsers)
-    setUsersLoaded(true)
-    return mergedUsers
+    try {
+      const serverUsers = await loadUsersFromServer()
+      const mergedUsers = mergeUsers(users, serverUsers)
+      setUsers(mergedUsers)
+      setUsersLoaded(true)
+      return mergedUsers
+    } catch (err) {
+      console.error('Failed to ensure users loaded:', err)
+      return users
+    }
   }
 
   const register = async (studentId: string, name: string, password: string): Promise<boolean> => {

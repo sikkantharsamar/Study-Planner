@@ -65,10 +65,10 @@ async function readUsers(): Promise<AuthUser[]> {
     return lines.slice(1).map((line) => {
       const [timestamp = '', id = '', name = '', studentId = '', password = ''] = parseCsvLine(line)
       return {
-        id,
-        name,
-        studentId,
-        password,
+        id: id.trim(),
+        name: name.trim(),
+        studentId: studentId.trim(),
+        password: password.trim(),
       }
     })
   } catch {

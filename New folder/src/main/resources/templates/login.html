@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Planner Login</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <script th:src="@{/js/theme.js}" defer></script>
 </head>
 <body class="auth-page">
 <div class="shape shape-a"></div>
 <div class="shape shape-b"></div>
 <main class="auth-card">
+    <div class="theme-controls">
+        <label for="themeSelect">Theme</label>
+        <select id="themeSelect" data-theme-select>
+            <option value="system">System (Default)</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select>
+    </div>
+
     <h1>Study Planner</h1>
     <p>Plan sessions, track deadlines, and stay consistent.</p>
 
