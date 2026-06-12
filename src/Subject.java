@@ -1,9 +1,13 @@
 import java.util.logging.Logger;
 public class Subject {
+        private static final Logger logger = Logger.getLogger(Subject.class.getName());
+
 
     private String subjectCode;
     private String subjectName;
     private int creditHours;
+    private int difficultyRating;
+    private String targetGrade;
 
 
 
@@ -35,7 +39,6 @@ public class Subject {
         this.creditHours = creditHours;
     }
 
-Logger logger = Logger.getLogger(getClass().getName());
 
     public void displaySubject() {
         logger.info("\n--- Subject Info ---");
