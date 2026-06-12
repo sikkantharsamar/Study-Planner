@@ -1,10 +1,16 @@
+import java.util.logging.Logger;
+
 
 public class Task {
+
+    private static final Logger logger = Logger.getLogger(Task.class.getName());
 
     private String taskId;
     private String taskName;
     private String deadline;
-    private String priority; // HIGH, MEDIUM, LOW
+    private String priority; 
+     private String category;
+    private double estimatedHours;
     private boolean isCompleted;
 
 
@@ -13,7 +19,7 @@ public class Task {
         this.taskName = taskName;
         this.deadline = deadline;
         this.priority = priority;
-        this.isCompleted = false; // Initially not completed
+        this.isCompleted = false; 
     }
 
 
