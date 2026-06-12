@@ -48,7 +48,8 @@ public class StudySession {
         logger.info("\n--- Study Session ---");
         logger.info("Session ID: " + sessionId);
         logger.info("Subject: " + subject.getSubjectName() + " (" + subject.getSubjectCode() + ")");
-        logger.info("Duration: " + durationInHours + " hours");
+        logger.info("Duration: " + durationInHours + " hours | Productivity Rating: " + productivityRating + "/5");
+        logger.info("Notes: " + sessionNotes);
         logger.info("--------------------");
     }
 }
