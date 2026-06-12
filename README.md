@@ -18,17 +18,5 @@ Smart Study Planner - Web-based task manager for university students with task t
 
 📈 Comprehensive Reports (Task & Study statistics)
 
-## Getting Started
 
-1. Install Node.js (https://nodejs.org)
-2. Clone or navigate to the project directory
-3. Run `npm install` to install dependencies
-4. Run `npm run dev` to start the development server
-5. Open http://localhost:3000 in your browser
 
-## Tech Stack
-
-- Next.js 14 (App Router)
-- TypeScript
-- Tailwind CSS
-- React Context API for state management
