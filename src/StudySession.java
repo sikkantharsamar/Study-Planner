@@ -9,10 +9,12 @@ public class StudySession {
     private int productivityRating;
 
 
-    public StudySession(String sessionId, Subject subject, double durationInHours) {
+   public StudySession(String sessionId, Subject subject, double durationInHours, String sessionNotes, int productivityRating) {
         this.sessionId = sessionId;
         this.subject = subject;
         this.durationInHours = durationInHours;
+        this.sessionNotes = sessionNotes;
+        this.productivityRating = productivityRating;
     }
 
 
@@ -26,6 +28,14 @@ public class StudySession {
 
     public double getDurationInHours() {
         return durationInHours;
+    }
+
+    public String getSessionNotes() {
+        return sessionNotes;
+    }
+
+    public int getProductivityRating() {
+        return productivityRating;
     }
 
 
