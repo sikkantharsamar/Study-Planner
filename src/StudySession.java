@@ -1,10 +1,12 @@
 import java.util.logging.Logger;
 public class StudySession {
-    Logger logger = Logger.getLogger(getClass().getName());
+    private static final Logger logger = Logger.getLogger(StudySession.class.getName());
 
     private String sessionId;
     private Subject subject;
     private double durationInHours;
+     private String sessionNotes;
+    private int productivityRating;
 
 
     public StudySession(String sessionId, Subject subject, double durationInHours) {
