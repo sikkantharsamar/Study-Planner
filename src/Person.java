@@ -1,5 +1,9 @@
 
+import java.util.logging.Logger;
+
 public abstract class Person {
+        private static final Logger logger = Logger.getLogger(Person.class.getName());
+
 
     protected String name;
     protected String email;
@@ -33,7 +37,7 @@ public abstract class Person {
 
 
     public void displayContactInfo() {
-        System.out.println("Name: " + name);
-        System.out.println("Email ID: " + email);
+        logger.info("Name: " + name);
+        logger.info("Email ID: " + email);
     }
 }
