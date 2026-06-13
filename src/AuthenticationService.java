@@ -1,8 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 
 public class AuthenticationService {
+
+        private static final Logger logger = Logger.getLogger(AuthenticationService.class.getName());
+
 
     private List<UserAccount> userAccounts;
     private UserAccount currentLoggedInUser;
