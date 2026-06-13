@@ -11,12 +11,25 @@ public class Student extends Person {
     public Student(String studentId, String name, String email) {
         super(name, email); 
         this.studentId = studentId;
+        this.studyXp = 0;
     }
 
 
     public String getStudentId() {
         return studentId;
     }
+    public int getStudyXp() {
+        return studyXp;
+    }
+    public int getLevel() {
+        return (studyXp / 100) + 1;
+    }
+
+    public void addXp(int points) {
+        this.studyXp += points;
+        logger.info("🌟 Awesome! You earned " + points + " XP! (Current Level: " + getLevel() + ")");
+    }
+
 
 
     @Override
