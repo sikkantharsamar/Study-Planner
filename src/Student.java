@@ -34,14 +34,16 @@ public class Student extends Person {
 
     @Override
     public void displayDetails() {
-        System.out.println("\n=== Student Details ===");
-        System.out.println("Student ID: " + studentId);
-        displayContactInfo(); 
-        System.out.println("======================");
+        logger.info("\n=== Student Details ===");
+        logger.info("Student ID: " + studentId);
+        displayContactInfo();
+        logger.info("Academic Level: " + getLevel());
+        logger.info("Total XP: " + studyXp);
+        logger.info("======================");
     }
 
 
     public void study() {
-        System.out.println(name + " is studying...");
+        logger.info(name + " is studying...");
     }
 }
