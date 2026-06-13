@@ -20,7 +20,7 @@ public class AuthenticationService {
 
     public void registerAccount(UserAccount account) {
         userAccounts.add(account);
-        System.out.println("Account registered successfully for: " + account.getUsername());
+        logger.info("Account registered successfully for: " + account.getUsername());
     }
 
 
@@ -28,23 +28,24 @@ public class AuthenticationService {
         for (UserAccount account : userAccounts) {
             if (account.validateCredentials(username, password)) {
                 currentLoggedInUser = account;
-                System.out.println("\n*** Login Successful! ***");
-                System.out.println("Welcome, " + account.getStudent().getName() + "!");
+                account.updateLastLogin();
+                logger.info("\n*** Login Successful! ***");
+                logger.info("Welcome back, " + account.getStudent().getName() + "! (Level " + account.getStudent().getLevel() + ")");
                 return true;
             }
         }
-        System.out.println("\n*** Login Failed! Invalid credentials. ***");
+        logger.info("\n*** Login Failed! Invalid credentials. ***");
         return false;
     }
 
 
     public void logout() {
         if (currentLoggedInUser != null) {
-            System.out.println("\n*** Logging out " + currentLoggedInUser.getUsername() + " ***");
+            logger.info("\n*** Logging out " + currentLoggedInUser.getUsername() + " ***");
             currentLoggedInUser = null;
-            System.out.println("Logout successful!");
+            logger.info("Logout successful!");
         } else {
-            System.out.println("No user is currently logged in.");
+            logger.info("No user is currently logged in.");
         }
     }
 
